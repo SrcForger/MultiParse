@@ -7,6 +7,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{1FECEE3C-320
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiParse", "src\MultiParse\MultiParse.csproj", "{D7063F16-9B4A-42A2-A0A1-FD12C24B6CED}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{D6740EB7-D106-4B6E-B6D2-7B68DCF4D281}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiParse.Tests", "test\MultiParse.Tests\MultiParse.Tests.csproj", "{262C67B5-F4C3-4377-B343-590DE492BCA1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,8 +24,13 @@ Global
 		{D7063F16-9B4A-42A2-A0A1-FD12C24B6CED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D7063F16-9B4A-42A2-A0A1-FD12C24B6CED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D7063F16-9B4A-42A2-A0A1-FD12C24B6CED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{262C67B5-F4C3-4377-B343-590DE492BCA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{262C67B5-F4C3-4377-B343-590DE492BCA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{262C67B5-F4C3-4377-B343-590DE492BCA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{262C67B5-F4C3-4377-B343-590DE492BCA1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{D7063F16-9B4A-42A2-A0A1-FD12C24B6CED} = {1FECEE3C-3207-425E-A512-AC34FF2ECAD9}
+		{262C67B5-F4C3-4377-B343-590DE492BCA1} = {D6740EB7-D106-4B6E-B6D2-7B68DCF4D281}
 	EndGlobalSection
 EndGlobal
