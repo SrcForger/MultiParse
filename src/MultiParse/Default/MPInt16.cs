@@ -7,10 +7,10 @@ namespace MultiParse.Default
     {
         public override int Match(string expression, object previousToken, out object converted)
         {
-            string str = "^";
+            var str = "^";
             if (IsUnary(previousToken))
                 str = "^[\\+\\-]?";
-            Match match = Regex.Match(expression, str + "\\d+(?![\\w\\.])");
+            var match = Regex.Match(expression, str + "\\d+(?![\\w\\.])");
             if (match.Success)
             {
                 try

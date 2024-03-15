@@ -7,7 +7,7 @@ namespace MultiParse
     {
         protected object PopOrGet(Stack<object> output)
         {
-            object obj = output.Pop();
+            var obj = output.Pop();
             return obj is IMPGettable ? (obj as IMPGettable).Get() : obj;
         }
 

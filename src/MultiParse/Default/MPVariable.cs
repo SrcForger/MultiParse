@@ -18,7 +18,7 @@ namespace MultiParse.Default
 
         public override int Match(string expression, object previousToken, out object convertedToken)
         {
-            Match match = Regex.Match(expression, "^[a-zA-Z_]\\w*(?![\\w\\.\\(\\[])");
+            var match = Regex.Match(expression, "^[a-zA-Z_]\\w*(?![\\w\\.\\(\\[])");
             if (match.Success)
             {
                 if (!variables.ContainsKey(match.Value))

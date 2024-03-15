@@ -17,7 +17,7 @@ namespace MultiParse.Default
 
         public override void Execute(Stack<object> output)
         {
-            object operand = PopOrGet(output);
+            var operand = PopOrGet(output);
             Not(output, operand);
         }
 

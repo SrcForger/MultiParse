@@ -14,16 +14,16 @@ namespace MultiParse.Default
         {
             if (arguments != 1)
                 throw new InvalidArgumentCountException(1, "Truncate()");
-            object obj = PopOrGet(output);
+            var obj = PopOrGet(output);
             Truncate(output, obj);
         }
 
         public void Truncate(Stack<object> output, object arg)
         {
             double result1;
-            bool flag1 = CastImplicit(arg, out result1);
+            var flag1 = CastImplicit(arg, out result1);
             decimal result2;
-            bool flag2 = CastImplicit(arg, out result2);
+            var flag2 = CastImplicit(arg, out result2);
             if (flag1 && flag2)
                 throw new ParseException("Ambiguous call to Truncate() for type '" + arg.GetType() + "'");
             if (flag1)

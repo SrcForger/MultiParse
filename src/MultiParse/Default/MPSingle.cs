@@ -8,10 +8,10 @@ namespace MultiParse.Default
     {
         public override int Match(string expression, object previousToken, out object convertedToken)
         {
-            string str = "";
+            var str = "";
             if (IsUnary(previousToken))
                 str = "[\\+\\-]?";
-            Match match = Regex.Match(expression, "^(?<mantissa>" + str + "\\d+(\\.\\d+)?)([eE](?<exponent>[\\-\\+]?\\d+))?[fF]?(?![\\w\\.])");
+            var match = Regex.Match(expression, "^(?<mantissa>" + str + "\\d+(\\.\\d+)?)([eE](?<exponent>[\\-\\+]?\\d+))?[fF]?(?![\\w\\.])");
             if (match.Success)
             {
                 try

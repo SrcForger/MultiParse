@@ -14,8 +14,8 @@ namespace MultiParse.Default
         {
             if (arguments != 2)
                 throw new ParseException("Invalid number of arguments for Pow(). 2 arguments expected.");
-            object right = PopOrGet(output);
-            object left = PopOrGet(output);
+            var right = PopOrGet(output);
+            var left = PopOrGet(output);
             Pow(output, left, right);
         }
 

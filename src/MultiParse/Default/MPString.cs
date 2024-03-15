@@ -13,13 +13,13 @@ namespace MultiParse.Default
                 convertedToken = null;
                 return -1;
             }
-            StringBuilder stringBuilder = new StringBuilder();
+            var stringBuilder = new StringBuilder();
             int i;
             for (i = 1; i <= expression.Length; ++i)
             {
                 if (i == expression.Length)
                     throw new ParseException("Quote mismatch, missing a '\"'");
-                char ch1 = expression[i];
+                var ch1 = expression[i];
                 switch (ch1)
                 {
                     case '"':
@@ -28,7 +28,7 @@ namespace MultiParse.Default
                         ++i;
                         if (i == expression.Length)
                             throw new ParseException("Quote mismatch, missing a '\"'");
-                        char ch2 = expression[i];
+                        var ch2 = expression[i];
                         switch (ch2)
                         {
                             case '"':
@@ -82,15 +82,15 @@ namespace MultiParse.Default
                 }
             }
         label_27:
-            string str = stringBuilder.ToString();
+            var str = stringBuilder.ToString();
             convertedToken = str;
             return i + 1;
         }
 
         private char ReadUTF16(string expression, ref int i)
         {
-            StringBuilder stringBuilder = new StringBuilder();
-            for (int index = 0; index < 4; ++index)
+            var stringBuilder = new StringBuilder();
+            for (var index = 0; index < 4; ++index)
             {
                 ++i;
                 if (i == expression.Length)
@@ -102,8 +102,8 @@ namespace MultiParse.Default
 
         private string ReadUnicodeSurrogatePair(string expression, ref int i)
         {
-            StringBuilder stringBuilder = new StringBuilder();
-            for (int index = 0; index < 8; ++index)
+            var stringBuilder = new StringBuilder();
+            for (var index = 0; index < 8; ++index)
             {
                 ++i;
                 if (i == expression.Length)
@@ -122,13 +122,13 @@ namespace MultiParse.Default
 
         private char ReadUTF16Var(string expression, ref int i)
         {
-            StringBuilder stringBuilder = new StringBuilder();
-            for (int index = 0; index < 4; ++index)
+            var stringBuilder = new StringBuilder();
+            for (var index = 0; index < 4; ++index)
             {
                 ++i;
                 if (i == expression.Length)
                     throw new ParseException("Quote mismatch, missing a '\"'");
-                char ch = expression[i];
+                var ch = expression[i];
                 if (ch >= 'A' && ch <= 'F' || ch >= 'a' && ch <= 'f' || ch >= '0' && ch <= '9')
                 {
                     stringBuilder.Append(ch);

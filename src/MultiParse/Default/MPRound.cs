@@ -15,12 +15,12 @@ namespace MultiParse.Default
             switch (arguments)
             {
                 case 1:
-                    object obj = PopOrGet(output);
+                    var obj = PopOrGet(output);
                     Round(output, obj);
                     break;
                 case 2:
-                    object right = PopOrGet(output);
-                    object left = PopOrGet(output);
+                    var right = PopOrGet(output);
+                    var left = PopOrGet(output);
                     Round(output, left, right);
                     break;
                 default:
@@ -31,9 +31,9 @@ namespace MultiParse.Default
         public void Round(Stack<object> output, object arg)
         {
             double result1;
-            bool flag1 = CastImplicit(arg, out result1);
+            var flag1 = CastImplicit(arg, out result1);
             decimal result2;
-            bool flag2 = CastImplicit(arg, out result2);
+            var flag2 = CastImplicit(arg, out result2);
             if (flag1 && flag2)
                 throw new ParseException("Ambiguous call to Round() for type '" + arg.GetType() + "'");
             if (flag1)
@@ -54,9 +54,9 @@ namespace MultiParse.Default
             if (!CastImplicit(right, out result1))
                 throw new InvalidArgumentTypeException("Round()", left, right);
             double result2;
-            bool flag1 = CastImplicit(left, out result2);
+            var flag1 = CastImplicit(left, out result2);
             double result3;
-            bool flag2 = CastImplicit(left, out result3);
+            var flag2 = CastImplicit(left, out result3);
             if (flag1 && flag2)
                 throw new ParseException("Ambiguous call to Round() for type '" + left.GetType() + "'");
             if (flag1)

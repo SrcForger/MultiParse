@@ -21,7 +21,7 @@ namespace MultiParse.Default
 
         public override void Execute(Stack<object> output)
         {
-            object a = PopOrGet(output);
+            var a = PopOrGet(output);
             switch (Type.GetTypeCode(a.GetType()))
             {
                 case TypeCode.Char:

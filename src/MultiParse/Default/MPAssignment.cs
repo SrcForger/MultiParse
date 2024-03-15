@@ -17,8 +17,8 @@ namespace MultiParse.Default
 
         public override void Execute(Stack<object> output)
         {
-            object obj1 = PopOrGet(output);
-            object obj2 = output.Pop();
+            var obj1 = PopOrGet(output);
+            var obj2 = output.Pop();
             if (!(obj2 is IMPAssignable))
                 throw new ParseException("Cannot assign to a non-assignable");
             ((IMPAssignable)obj2).Assign(obj1);

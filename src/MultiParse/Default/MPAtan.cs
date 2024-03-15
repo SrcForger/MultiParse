@@ -14,7 +14,7 @@ namespace MultiParse.Default
         {
             if (arguments != 1)
                 throw new InvalidArgumentCountException(1, "Atan()");
-            object obj = PopOrGet(output);
+            var obj = PopOrGet(output);
             Atan(output, obj);
         }
 

@@ -14,16 +14,16 @@ namespace MultiParse.Default
         {
             if (arguments != 1 && arguments != 2)
                 throw new InvalidArgumentCountException(1, 2, "Ceiling()");
-            object obj = PopOrGet(output);
+            var obj = PopOrGet(output);
             Ceiling(output, obj);
         }
 
         public void Ceiling(Stack<object> output, object arg)
         {
             double result1;
-            bool flag1 = CastImplicit(arg, out result1);
+            var flag1 = CastImplicit(arg, out result1);
             decimal result2;
-            bool flag2 = CastImplicit(arg, out result2);
+            var flag2 = CastImplicit(arg, out result2);
             if (flag1 && flag2)
                 throw new ParseException("The call to Ceiling() is ambiguous for the type '" + arg.GetType() + "'");
             if (flag1)

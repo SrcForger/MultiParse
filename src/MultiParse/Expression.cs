@@ -113,14 +113,14 @@ namespace MultiParse
             operatorStack.Clear();
             compiledQueue.Clear();
             lastToken = null;
-            string expression = (string)this.expression.Clone();
+            var expression = (string)this.expression.Clone();
             while (!string.IsNullOrWhiteSpace(expression))
                 ProcessToken(ref expression);
             ExecuteStack();
             if (outputStack.Count != 1)
                 throw new ParseException("Invalid output stack. Cannot resolve to a determined result.");
             isCompiled = true;
-            object obj = outputStack.Pop();
+            var obj = outputStack.Pop();
             if (obj is IMPGettable)
             {
                 compiledQueue.AddLast(() => (outputStack.Pop() as IMPGettable).Get());
@@ -132,19 +132,19 @@ namespace MultiParse
         protected object Execute()
         {
             outputStack.Clear();
-            foreach (CompiledAction compiled in compiledQueue)
+            foreach (var compiled in compiledQueue)
                 compiled();
             return outputStack.Count == 1 ? outputStack.Pop() : throw new ParseException("Invalid output stack. Cannot resolve to a determined result.");
         }
 
         protected void ProcessToken(ref string expression)
         {
-            foreach (MPBrackets bracket1 in bracketList)
+            foreach (var bracket1 in bracketList)
             {
-                int num = bracket1.MatchSeparator(expression, lastToken);
+                var num = bracket1.MatchSeparator(expression, lastToken);
                 if (num > 0)
                 {
-                    MPBracketInfo bracket2 = CompileToBracket();
+                    var bracket2 = CompileToBracket();
                     operatorStack.Push(bracket2);
                     bracket2.AddSeparator(expression.Substring(0, num));
                     expression = expression.Substring(num);
@@ -152,9 +152,9 @@ namespace MultiParse
                     return;
                 }
             }
-            foreach (MPOperator mpOperator1 in operatorList)
+            foreach (var mpOperator1 in operatorList)
             {
-                int startIndex = mpOperator1.Match(expression, lastToken);
+                var startIndex = mpOperator1.Match(expression, lastToken);
                 if (startIndex > 0)
                 {
                     expression = expression.Substring(startIndex);
@@ -169,10 +169,10 @@ namespace MultiParse
                                 case MPBracketInfo _:
                                     goto label_17;
                                 case MPOperator _:
-                                    MPOperator mpOperator2 = obj as MPOperator;
+                                    var mpOperator2 = obj as MPOperator;
                                     if (mpOperator1.LeftAssociative && mpOperator1.Precedence == mpOperator2.Precedence || mpOperator1.Precedence < mpOperator2.Precedence)
                                     {
-                                        CompiledAction compiledAction = (operatorStack.Pop() as MPOperator).Action(outputStack);
+                                        var compiledAction = (operatorStack.Pop() as MPOperator).Action(outputStack);
                                         if (compiledAction != null)
                                             compiledQueue.AddLast(compiledAction);
                                         continue;
@@ -193,26 +193,26 @@ namespace MultiParse
                     return;
                 }
             }
-            foreach (MPDataType type in typeList)
+            foreach (var type in typeList)
             {
                 object convertedToken = null;
-                int startIndex = type.Match(expression, lastToken, out convertedToken);
+                var startIndex = type.Match(expression, lastToken, out convertedToken);
                 if (startIndex > 0)
                 {
                     expression = expression.Substring(startIndex);
-                    CompiledAction compiledAction = type.Action(outputStack, convertedToken);
+                    var compiledAction = type.Action(outputStack, convertedToken);
                     if (compiledAction != null)
                         compiledQueue.AddLast(compiledAction);
                     lastToken = convertedToken;
                     return;
                 }
             }
-            foreach (MPBrackets bracket in bracketList)
+            foreach (var bracket in bracketList)
             {
-                int num = bracket.MatchOpen(expression, lastToken);
+                var num = bracket.MatchOpen(expression, lastToken);
                 if (num > 0)
                 {
-                    MPBracketInfo mpBracketInfo = new MPBracketInfo(expression.Substring(0, num));
+                    var mpBracketInfo = new MPBracketInfo(expression.Substring(0, num));
                     operatorStack.Push(mpBracketInfo);
                     expression = expression.Substring(num);
                     lastToken = mpBracketInfo;
@@ -220,9 +220,9 @@ namespace MultiParse
                 }
             }
             MPBracketInfo mpBracketInfo1 = null;
-            foreach (MPBrackets bracket in bracketList)
+            foreach (var bracket in bracketList)
             {
-                int num = bracket.MatchClose(expression, lastToken);
+                var num = bracket.MatchClose(expression, lastToken);
                 if (num > 0)
                 {
                     if (mpBracketInfo1 == null)
@@ -233,7 +233,7 @@ namespace MultiParse
                     }
                     if (bracket.BracketsMatch(mpBracketInfo1, expression.Substring(0, num)))
                     {
-                        CompiledAction compiledAction = bracket.Action(outputStack, mpBracketInfo1);
+                        var compiledAction = bracket.Action(outputStack, mpBracketInfo1);
                         if (compiledAction != null)
                             compiledQueue.AddLast(compiledAction);
                         expression = expression.Substring(num);
@@ -259,7 +259,7 @@ namespace MultiParse
                         case MPBracketInfo _:
                             goto label_3;
                         case MPOperator _:
-                            CompiledAction compiledAction = (bracket as MPOperator).Action(outputStack);
+                            var compiledAction = (bracket as MPOperator).Action(outputStack);
                             if (compiledAction != null)
                                 compiledQueue.AddLast(compiledAction);
                             continue;
@@ -281,11 +281,11 @@ namespace MultiParse
         {
             while (operatorStack.Count > 0)
             {
-                object obj = operatorStack.Pop();
+                var obj = operatorStack.Pop();
                 switch (obj)
                 {
                     case MPOperator _:
-                        CompiledAction compiledAction = (obj as MPOperator).Action(outputStack);
+                        var compiledAction = (obj as MPOperator).Action(outputStack);
                         if (compiledAction != null)
                             compiledQueue.AddLast(compiledAction);
                         continue;
@@ -299,8 +299,8 @@ namespace MultiParse
 
         public MPDataType[] FindDataType(Type dt)
         {
-            List<MPDataType> mpDataTypeList = new List<MPDataType>();
-            foreach (MPDataType type in typeList)
+            var mpDataTypeList = new List<MPDataType>();
+            foreach (var type in typeList)
             {
                 if (type.GetType().Equals(dt))
                     mpDataTypeList.Add(type);
@@ -310,8 +310,8 @@ namespace MultiParse
 
         public MPOperator[] FindOperator(Type op)
         {
-            List<MPOperator> mpOperatorList = new List<MPOperator>();
-            foreach (MPOperator mpOperator in operatorList)
+            var mpOperatorList = new List<MPOperator>();
+            foreach (var mpOperator in operatorList)
             {
                 if (mpOperator.GetType().Equals(op))
                     mpOperatorList.Add(mpOperator);
@@ -321,8 +321,8 @@ namespace MultiParse
 
         public MPBrackets[] FindBracketted(Type br)
         {
-            List<MPBrackets> mpBracketsList = new List<MPBrackets>();
-            foreach (MPBrackets bracket in bracketList)
+            var mpBracketsList = new List<MPBrackets>();
+            foreach (var bracket in bracketList)
             {
                 if (bracket.GetType().Equals(br))
                     mpBracketsList.Add(bracket);

@@ -11,7 +11,7 @@ namespace MultiParse
 
         public override sealed int MatchOpen(string expression, object previousToken)
         {
-            Match match = Regex.Match(expression, "^" + name + "\\(");
+            var match = Regex.Match(expression, "^" + name + "\\(");
             return match.Success ? match.Length : -1;
         }
 
@@ -32,7 +32,7 @@ namespace MultiParse
 
         public override CompiledAction Action(Stack<object> output, MPBracketInfo info)
         {
-            int argcount = 0;
+            var argcount = 0;
             if (!info.IsEmpty)
                 argcount = info.Separators.Count + 1;
             CompiledAction compiledAction = () => Execute(output, argcount);

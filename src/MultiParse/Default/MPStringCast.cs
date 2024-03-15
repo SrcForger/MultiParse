@@ -20,7 +20,7 @@ namespace MultiParse.Default
 
         public override void Execute(Stack<object> output)
         {
-            object a = PopOrGet(output);
+            var a = PopOrGet(output);
             if (!(a is string))
                 throw new InvalidOperatorTypesException("(String)", a);
             output.Push((string)a);

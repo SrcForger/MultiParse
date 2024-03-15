@@ -16,8 +16,8 @@ namespace MultiParse.Default
 
         public override void Execute(Stack<object> output)
         {
-            object right = PopOrGet(output);
-            object left = PopOrGet(output);
+            var right = PopOrGet(output);
+            var left = PopOrGet(output);
             ConditionalOr(output, left, right);
         }
 

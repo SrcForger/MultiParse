@@ -14,7 +14,7 @@ namespace MultiParse.Default
         {
             if (arguments != 1)
                 throw new InvalidArgumentCountException(1, "Exp()");
-            object obj = PopOrGet(output);
+            var obj = PopOrGet(output);
             Exp(output, obj);
         }
 

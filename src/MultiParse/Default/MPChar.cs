@@ -20,7 +20,7 @@ namespace MultiParse.Default
             }
             if (expression[1] == '\\')
             {
-                int i = 2;
+                var i = 2;
                 switch (expression[2])
                 {
                     case '"':
@@ -66,7 +66,7 @@ namespace MultiParse.Default
                         converted = null;
                         return -1;
                 }
-                int index = i + 1;
+                var index = i + 1;
                 if (index >= expression.Length)
                     throw new ParseException("Quote mismatch, missing a '\"'");
                 if (expression[index] == '\'')
@@ -83,8 +83,8 @@ namespace MultiParse.Default
 
         private char ReadUTF16(string expression, ref int i)
         {
-            StringBuilder stringBuilder = new StringBuilder();
-            for (int index = 0; index < 4; ++index)
+            var stringBuilder = new StringBuilder();
+            for (var index = 0; index < 4; ++index)
             {
                 ++i;
                 if (i == expression.Length)
@@ -96,13 +96,13 @@ namespace MultiParse.Default
 
         private char ReadUTF16Var(string expression, ref int i)
         {
-            StringBuilder stringBuilder = new StringBuilder();
-            for (int index = 0; index < 4; ++index)
+            var stringBuilder = new StringBuilder();
+            for (var index = 0; index < 4; ++index)
             {
                 ++i;
                 if (i == expression.Length)
                     throw new ParseException("Quote mismatch, missing a '\"'");
-                char ch = expression[i];
+                var ch = expression[i];
                 if (ch >= 'A' && ch <= 'F' || ch >= 'a' && ch <= 'f' || ch >= '0' && ch <= '9')
                 {
                     stringBuilder.Append(ch);

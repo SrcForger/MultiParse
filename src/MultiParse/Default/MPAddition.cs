@@ -18,19 +18,19 @@ namespace MultiParse.Default
 
         public override void Execute(Stack<object> output)
         {
-            object right = PopOrGet(output);
-            object left = PopOrGet(output);
+            var right = PopOrGet(output);
+            var left = PopOrGet(output);
             Add(output, left, right);
         }
 
         public void Add(Stack<object> output, object left, object right)
         {
-            TypeCode typeCode1 = Type.GetTypeCode(left.GetType());
-            TypeCode typeCode2 = Type.GetTypeCode(right.GetType());
+            var typeCode1 = Type.GetTypeCode(left.GetType());
+            var typeCode2 = Type.GetTypeCode(right.GetType());
             switch (typeCode1)
             {
                 case TypeCode.Char:
-                    char ch = (char)left;
+                    var ch = (char)left;
                     switch (typeCode2)
                     {
                         case TypeCode.Char:
@@ -75,7 +75,7 @@ namespace MultiParse.Default
                     }
                     break;
                 case TypeCode.SByte:
-                    sbyte num1 = (sbyte)left;
+                    var num1 = (sbyte)left;
                     switch (typeCode2)
                     {
                         case TypeCode.Char:
@@ -117,7 +117,7 @@ namespace MultiParse.Default
                     }
                     break;
                 case TypeCode.Byte:
-                    byte num2 = (byte)left;
+                    var num2 = (byte)left;
                     switch (typeCode2)
                     {
                         case TypeCode.Char:
@@ -162,7 +162,7 @@ namespace MultiParse.Default
                     }
                     break;
                 case TypeCode.Int16:
-                    short num3 = (short)left;
+                    var num3 = (short)left;
                     switch (typeCode2)
                     {
                         case TypeCode.Char:
@@ -204,7 +204,7 @@ namespace MultiParse.Default
                     }
                     break;
                 case TypeCode.UInt16:
-                    ushort num4 = (ushort)left;
+                    var num4 = (ushort)left;
                     switch (typeCode2)
                     {
                         case TypeCode.Char:
@@ -249,7 +249,7 @@ namespace MultiParse.Default
                     }
                     break;
                 case TypeCode.Int32:
-                    int num5 = (int)left;
+                    var num5 = (int)left;
                     switch (typeCode2)
                     {
                         case TypeCode.Char:
@@ -291,7 +291,7 @@ namespace MultiParse.Default
                     }
                     break;
                 case TypeCode.UInt32:
-                    uint num6 = (uint)left;
+                    var num6 = (uint)left;
                     switch (typeCode2)
                     {
                         case TypeCode.Char:
@@ -336,7 +336,7 @@ namespace MultiParse.Default
                     }
                     break;
                 case TypeCode.Int64:
-                    long num7 = (long)left;
+                    var num7 = (long)left;
                     switch (typeCode2)
                     {
                         case TypeCode.Char:
@@ -378,7 +378,7 @@ namespace MultiParse.Default
                     }
                     break;
                 case TypeCode.UInt64:
-                    ulong num8 = (ulong)right;
+                    var num8 = (ulong)right;
                     switch (typeCode2)
                     {
                         case TypeCode.Char:
@@ -411,7 +411,7 @@ namespace MultiParse.Default
                     }
                     break;
                 case TypeCode.Single:
-                    float num9 = (float)left;
+                    var num9 = (float)left;
                     switch (typeCode2)
                     {
                         case TypeCode.Char:
@@ -453,7 +453,7 @@ namespace MultiParse.Default
                     }
                     break;
                 case TypeCode.Double:
-                    double num10 = (double)left;
+                    var num10 = (double)left;
                     switch (typeCode2)
                     {
                         case TypeCode.Char:
@@ -495,7 +495,7 @@ namespace MultiParse.Default
                     }
                     break;
                 case TypeCode.Decimal:
-                    decimal num11 = (decimal)left;
+                    var num11 = (decimal)left;
                     switch (typeCode2)
                     {
                         case TypeCode.Char:
@@ -534,7 +534,7 @@ namespace MultiParse.Default
                     }
                     break;
                 case TypeCode.String:
-                    string str = (string)left;
+                    var str = (string)left;
                     switch (typeCode2)
                     {
                         case TypeCode.Boolean:

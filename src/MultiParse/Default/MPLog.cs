@@ -15,12 +15,12 @@ namespace MultiParse.Default
             switch (arguments)
             {
                 case 1:
-                    object obj = PopOrGet(output);
+                    var obj = PopOrGet(output);
                     Log(output, obj);
                     break;
                 case 2:
-                    object right = PopOrGet(output);
-                    object left = PopOrGet(output);
+                    var right = PopOrGet(output);
+                    var left = PopOrGet(output);
                     Log(output, left, right);
                     break;
                 default:
