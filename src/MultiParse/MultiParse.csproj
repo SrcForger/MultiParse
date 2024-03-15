@@ -12,7 +12,9 @@
     <Authors>Sven Boulanger</Authors>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/SrcForger/MultiParse</RepositoryUrl>
-    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageProjectUrl>https://github.com/SrcForger/MultiParse</PackageProjectUrl>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
     <Description>This is an expression parser with an emphasis on versatility. Custom types, operators, functions, etc. can be constructed to accomodate a large collection of application.</Description>
     <Copyright>Copyright 2014</Copyright>
     <PackageTags>MultiParse Math Expression Parser</PackageTags>
