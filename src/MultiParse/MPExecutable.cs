@@ -59,7 +59,7 @@ namespace MultiParse
             return false;
         }
 
-        protected static bool CastImplicit(object o, out Decimal result)
+        protected static bool CastImplicit(object o, out decimal result)
         {
             switch (Type.GetTypeCode(o.GetType()))
             {
@@ -91,7 +91,7 @@ namespace MultiParse
                     result = (ulong)o;
                     return true;
                 case TypeCode.Decimal:
-                    result = (Decimal)o;
+                    result = (decimal)o;
                     return true;
                 default:
                     result = 0M;

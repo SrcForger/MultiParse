@@ -3,10 +3,10 @@ using System.Collections.Generic;
 
 namespace MultiParse.Default
 {
-    public class MPUInt64Cast : MPOperator
+    public class MPUInt16Cast : MPOperator
     {
-        public MPUInt64Cast()
-          : base("(ulong)", PrecedenceUnary, false)
+        public MPUInt16Cast()
+          : base("(ushort)", PrecedenceUnary, false)
         {
         }
 
@@ -14,9 +14,9 @@ namespace MultiParse.Default
         {
             if (!IsUnary(previousToken))
                 return -1;
-            if (expression.StartsWith("(ulong)"))
-                return "(ulong)".Length;
-            return expression.StartsWith("(UInt64)") ? "(UInt64)".Length : -1;
+            if (expression.StartsWith("(ushort)"))
+                return "(ushort)".Length;
+            return expression.StartsWith("(UInt16)") ? "(UInt16)".Length : -1;
         }
 
         public override void Execute(Stack<object> output)
@@ -25,43 +25,43 @@ namespace MultiParse.Default
             switch (Type.GetTypeCode(a.GetType()))
             {
                 case TypeCode.Char:
-                    output.Push((ulong)(char)a);
+                    output.Push((ushort)(char)a);
                     break;
                 case TypeCode.SByte:
-                    output.Push((ulong)(sbyte)a);
+                    output.Push((ushort)(sbyte)a);
                     break;
                 case TypeCode.Byte:
-                    output.Push((ulong)(byte)a);
+                    output.Push((ushort)(byte)a);
                     break;
                 case TypeCode.Int16:
-                    output.Push((ulong)(short)a);
+                    output.Push((ushort)(short)a);
                     break;
                 case TypeCode.UInt16:
-                    output.Push((ulong)(ushort)a);
+                    output.Push((ushort)a);
                     break;
                 case TypeCode.Int32:
-                    output.Push((ulong)(int)a);
+                    output.Push((ushort)(int)a);
                     break;
                 case TypeCode.UInt32:
-                    output.Push((ulong)(uint)a);
+                    output.Push((ushort)(uint)a);
                     break;
                 case TypeCode.Int64:
-                    output.Push((ulong)(long)a);
+                    output.Push((ushort)(long)a);
                     break;
                 case TypeCode.UInt64:
-                    output.Push((ulong)a);
+                    output.Push((ushort)(ulong)a);
                     break;
                 case TypeCode.Single:
-                    output.Push((ulong)(float)a);
+                    output.Push((ushort)(float)a);
                     break;
                 case TypeCode.Double:
-                    output.Push((ulong)(double)a);
+                    output.Push((ushort)(double)a);
                     break;
                 case TypeCode.Decimal:
-                    output.Push((ulong)(decimal)a);
+                    output.Push((ushort)(decimal)a);
                     break;
                 default:
-                    throw new InvalidOperatorTypesException("(UInt64)", a);
+                    throw new InvalidOperatorTypesException("(UInt16)", a);
             }
         }
     }
