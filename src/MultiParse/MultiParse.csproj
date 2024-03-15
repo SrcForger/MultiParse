@@ -6,8 +6,8 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <PackageId>MultiParse</PackageId>
-    <Version>1.0.2</Version>
+    <PackageId>MultiParseX</PackageId>
+    <Version>1.0.3</Version>
     <Title>MultiParse</Title>
     <Authors>Sven Boulanger</Authors>
     <RepositoryType>git</RepositoryType>
@@ -16,7 +16,7 @@
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
     <Description>This is an expression parser with an emphasis on versatility. Custom types, operators, functions, etc. can be constructed to accomodate a large collection of application.</Description>
-    <Copyright>Copyright 2014</Copyright>
+    <Copyright>Copyright 2014, 2024</Copyright>
     <PackageTags>MultiParse Math Expression Parser</PackageTags>
   </PropertyGroup>
 

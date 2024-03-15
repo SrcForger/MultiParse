@@ -9,7 +9,7 @@ The expression parser itself is based on Dijkstra's Shunting Yard algorithm with
 
 The customizing features makes this parser a very useful tool. As an example, a complex number parser is implemented in the Documentation. It then becomes as simple as it can get to parse expressions with complex numbers!
 
-Find the NuGet package at https://www.nuget.org/packages/MultiParse/ !
+Find the NuGet package at https://www.nuget.org/packages/MultiParseX/ !
 
 ## Getting Started
 Using the expression parser is as easy as
