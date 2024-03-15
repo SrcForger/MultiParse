@@ -11,6 +11,10 @@ namespace MultiParse.Tests
         [InlineData("3+sqrt(2)", "4.414213562373095")]
         [InlineData("true", "True")]
         [InlineData("false", "False")]
+        [InlineData("(byte)3+(sbyte)5+(char)65", "73")]
+        [InlineData("(long)51+(long)634", "685")]
+        [InlineData("(ulong)151*(ulong)61", "9211")]
+        [InlineData("(short)1+(ushort)2+(int)3+(uint)4+(decimal)7", "17")]
         public void TestSimple(string input, string output)
         {
             var e = new Expression();
