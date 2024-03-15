@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net8.0;net481</TargetFrameworks>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageId>MultiParse</PackageId>
+    <Version>1.0.2</Version>
+    <Title>MultiParse</Title>
+    <Authors>Sven Boulanger</Authors>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/SrcForger/MultiParse</RepositoryUrl>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <Description>This is an expression parser with an emphasis on versatility. Custom types, operators, functions, etc. can be constructed to accomodate a large collection of application.</Description>
+    <Copyright>Copyright 2014</Copyright>
+    <PackageTags>MultiParse Math Expression Parser</PackageTags>
+  </PropertyGroup>
+
+</Project>
