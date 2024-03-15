@@ -15,6 +15,15 @@ namespace MultiParse.Tests
         [InlineData("(long)51+(long)634", "685")]
         [InlineData("(ulong)151*(ulong)61", "9211")]
         [InlineData("(short)1+(ushort)2+(int)3+(uint)4+(decimal)7", "17")]
+        [InlineData("\"Hello World\"", "Hello World")]
+        [InlineData("(float)51/(double)634", "0.080441640378548")]
+        [InlineData("(1.78+2.6)-(4.3*6.1)/(7%8.2)", "0.632857142857143")]
+        [InlineData("24<=848", "True")]
+        [InlineData("24>=848", "False")]
+        [InlineData("24<848", "True")]
+        [InlineData("24>848", "False")]
+        [InlineData("24==848", "False")]
+        [InlineData("24!=848", "True")]
         public void TestSimple(string input, string output)
         {
             var e = new Expression();
